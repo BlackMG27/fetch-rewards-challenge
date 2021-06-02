@@ -1,5 +1,5 @@
 //setup the variables 
-const itemArr = [];
+const results = document.getElementById('results');
 let thisList,
     newList;
 
@@ -33,10 +33,33 @@ fetch(`https://fetch-hiring.s3.amazonaws.com/hiring.json`)
         //sort the objects in the array
         for(let list in newList){
             newList[list].sort((a,b) => {
+                //sort by the 
                 return a.id - b.id
             })
         }
         console.log(newList)
+
+        //map the values into the webpage
+            //create the html values 
+            //loop through the arrays
+            for(let t in newList){
+                //set up the ul element
+                let resultUl = document.createElement('ul');
+                resultUl.classList.add('result__list');
+                resultUl.id = `result-${t}`
+                //loop through inner arrays
+                newList[t].map(list => {
+                    //set up li
+                    let resultLi = document.createElement('li');
+                    resultLi.classList.add('result__list-item')
+                    //set the inner array value to the innerHTML
+                    resultLi.innerHTML = `List id: ${list.listId} Name: ${list.name}`
+                    //push it into the resultUl 
+                    resultUl.appendChild(resultLi)
+                })
+                //push resultUl into the results section
+                results.appendChild(resultUl);
+            }     
     })
 
     

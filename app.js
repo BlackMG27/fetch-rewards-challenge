@@ -11,7 +11,6 @@ fetch(`https://fetch-hiring.s3.amazonaws.com/hiring.json`)
             const notA = a.name != null && a.name != "";
             return notA;
         })
-        console.log(data)
         //group the list by id 
         thisList = data.reduce((a, d) => {
             //if the list doesn't exist in the array
@@ -25,10 +24,8 @@ fetch(`https://fetch-hiring.s3.amazonaws.com/hiring.json`)
             }
             return a;
         }, {});
-        console.log(thisList);
         //gets the values of object and turns them into an array
         newList = Object.values(thisList);
-        console.log(newList)
 
         //sort the objects in the array
         for(let list in newList){
@@ -37,7 +34,6 @@ fetch(`https://fetch-hiring.s3.amazonaws.com/hiring.json`)
                 return a.id - b.id
             })
         }
-        console.log(newList)
 
         //map the values into the webpage
             //create the html values 
@@ -53,7 +49,7 @@ fetch(`https://fetch-hiring.s3.amazonaws.com/hiring.json`)
                     let resultLi = document.createElement('li');
                     resultLi.classList.add('result__list-item')
                     //set the inner array value to the innerHTML
-                    resultLi.innerHTML = `List id: ${list.listId} Name: ${list.name}`
+                    resultLi.innerHTML = `<strong>List id:</strong> ${list.listId} <strong>Name:</strong> ${list.name}`
                     //push it into the resultUl 
                     resultUl.appendChild(resultLi)
                 })

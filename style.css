@@ -1,0 +1,39 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;400&display=swap');
+
+*{
+    box-sizing: border-box;
+}
+
+body{
+    display: flex;
+    font-family: 'Poppins', Verdana, Geneva, Tahoma, sans-serif;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+}
+
+.page__title{
+    font-weight: 200;
+    font-size: 3.25rem;
+}
+
+.page__results{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    width: 100%;
+    max-width: 1000px;
+}
+
+.result__list{
+    flex: 100%;
+}
+
+.result__list-item{
+    font-size: 1.25rem;
+    padding: 10px 50px;
+    list-style: none;
+    display: inline-block;
+    font-weight: 400;
+}
